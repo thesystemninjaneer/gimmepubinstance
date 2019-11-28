@@ -1,0 +1,29 @@
+alias gimmepubinstance="unset AWS_DELEGATION_TOKEN AWS_ACCESS_KEY AWS_SECRET_KEY && \
+        CWD=\$(pwd) && \
+        cd \$HOME/.gimmepubinstance2/runfirst/ && \
+        AWS_PROFILE=foo terraform init \$HOME/.gimmepubinstance2/runfirst/ && \
+        AWS_PROFILE=foo terraform apply -auto-approve \
+                                         \$HOME/.gimmepubinstance2/runfirst/ && \
+        cd \$HOME/.gimmepubinstance2/ && \
+        AWS_PROFILE=foo terraform init \$HOME/.gimmepubinstance2 && \
+        AWS_PROFILE=foo terraform apply -auto-approve \
+                                         -var myip=\$(curl checkip.amazonaws.com)/32 \
+                                         -var awsprofile=foo \
+                                         \$HOME/.gimmepubinstance2/ && \
+        pubip=\$(AWS_PROFILE=foo terraform output gimmepubinstance_ip|grep [0-9]|cut -f2 -d\\\") && \
+        echo \"  use this to get on instance: ssh centos@\$pubip -i /p/certs/foo-pass.pem\" || \
+        echo ' Trouble creating instance...try first running deletegimmeinstance or showgimmeinstance.'; \
+        cd \$CWD"
+alias showgimmeinstance="unset AWS_DELEGATION_TOKEN AWS_ACCESS_KEY AWS_SECRET_KEY && \
+        CWD=\$(pwd) && \
+        cd \$HOME/.gimmepubinstance2/ && \
+        AWS_PROFILE=foo terraform show; \
+        cd \$CWD"
+alias deletegimmeinstance="unset AWS_DELEGATION_TOKEN AWS_ACCESS_KEY AWS_SECRET_KEY && \
+        CWD=\$(pwd) && \
+        cd \$HOME/.gimmepubinstance2/ && \
+        AWS_PROFILE=foo terraform destroy  -auto-approve \
+                                            -var myip=\$(curl checkip.amazonaws.com)/32 \
+                                            -var awsprofile=foo \
+                                            \$HOME/.gimmepubinstance2/; \
+        cd \$CWD"
