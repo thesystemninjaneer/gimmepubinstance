@@ -36,7 +36,10 @@ deletegimmeinstance
 
 ### Commands
 Instead of using the above Quick Start [aliases](./aliases) method to simplify creation of the AWS instance, these commands can manually be run to create the instance. Steps 1 & 2 should work without being modified unless you prefer a different AWS region or have non standard AWS CLI settings.
-1. With an editor, update the local [gimmepubinstance.tf](./gimmepubinstance.tf) file `provider` & `backend` stanzas with the path to your AWS credential & AWS Region.
+1. With an editor, update the local [gimmepubinstance.tf](./gimmepubinstance.tf) file `provider`, `backend` stanzas with
+   1. the path to your AWS credential
+   2. desired AWS Region
+   3. globally unique S3 bucket name since I already grabbed gimmepubinstance ;)
 ```
 provider "aws" {
   shared_credentials_file = "%HOME/.aws/credentials"
