@@ -115,6 +115,15 @@ resource "aws_network_acl" "gimmeaclinbound" {
     to_port    = 80
   }
 
+  egress {
+    protocol   = "tcp"
+    rule_no    = 311
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 443
+    to_port    = 443
+  }
+
   tags = {
     Name = "gimmeacl"
   }
