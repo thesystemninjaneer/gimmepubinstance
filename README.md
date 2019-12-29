@@ -107,3 +107,7 @@ The [gimmepubinstance.tf](./gimmepubinstance.tf) file uses the AWS Terraform Pro
 1. `gimmeiamprofile` IAM profile needed before the above IAM policy `gimmepubinstancepolicy` can be attached to the IAM role `gimmeiamrole`
 1. `gimmeiamattach` attaches the above `gimmepubinstancepolicy` IAM policy to the `gimmeiamrole` IAM role
 1. `gimmepubinstance` finally creates the `t3a.micro` ec2 instance using the latest CentOS AMI in the AWS marketplace and the above created IAM policies/roles/profiles/subnet with a public ip saved in the `gimmepubinstance_ip` Terraform output variable to reference for ease of later SSH connections
+
+## Compliance
+
+The ability to quickly spin up infrastructure presents a new need to at any moment be able to validate what IaC exists is configured as intended and not manipulated or altered by anything external to this repository be it unintentionally or intentionally. See [COMPLIANCE.md](compliance/COMPLIANCE.md) for instructions on performing compliance checks on gimmepubinstance resources.
