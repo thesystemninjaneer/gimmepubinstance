@@ -16,7 +16,7 @@ export PATH=$PATH:/root/.local/bin
 ```
 1. download the latest inspec RPM from https://downloads.chef.io/inspec/stable
 ```
-curl https://packages.chef.io/files/stable/inspec/4.18.51/el/8/inspec-4.18.51-1.el7.x86_64.rpm -O
+curl -k https://packages.chef.io/files/stable/inspec/4.18.51/el/8/inspec-4.18.51-1.el7.x86_64.rpm -O
 yum install -y inspec-4.18.51-1.el7.x86_64.rpm
 ```
 2. Install the aws resource pack for inspec
