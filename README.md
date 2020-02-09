@@ -25,22 +25,22 @@ Have the following steps completed prior to running terraform:
 ## Quick Start
 If you want to fully understand what the code in this repo does, skip to the next sections for step by step procedures. If you want to quickly get up and running from a \*nix laptop/workstations, a sample `aliases` file has been included in this repo that turns the detailed commands into a single word bash alias. Perform these steps to setup the one word aliases  `gimmepubinstance` & `deletegimmeinstance`.
 1. Add the below to the bottom of your `~/.bashrc` file making sure to update `/path/to/gimmepubinstance` path to your actual path to this locally cloned gimmepubinstance repo on your laptop/workstation.
-```
-source /path/to/gimmepubinstance/aliases
-```
+   ```
+   source /path/to/gimmepubinstance/aliases
+   ```
 2. Update the `gimmeprofile` & `gimmepath` bash variable values within the [aliases](./aliases) file to reflect your AWS CLI profile and path to this cloned repo.
-```
-export gimmeprofile=foo                   #<---UPDATE ME
-export gimmepath="$HOME/gimmepubinstance" #<---UPDATE ME
-```
+   ```
+   export gimmeprofile=foo                   #<---UPDATE ME
+   export gimmepath="$HOME/gimmepubinstance" #<---UPDATE ME
+   ```
 3. Now you are ready to create the AWS instance!
-```
-gimmepubinstance
-```
+   ```
+   gimmepubinstance
+   ```
 4. Clean up the AWS instance and VPC resources created in step `3.` when they are no longer needed.
-```
-deletegimmeinstance
-```
+   ```
+   deletegimmeinstance
+   ```
 
 ## Commands
 Instead of using the above Quick Start [aliases](./aliases) method to simplify creation of the AWS instance, these commands can manually be run to create the instance. Steps 1 & 2 should work without being modified unless you prefer a different AWS region or have non standard AWS CLI settings.
