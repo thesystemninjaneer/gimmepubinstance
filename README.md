@@ -1,6 +1,8 @@
 # Overview of `gimmepubinstance`
 This repo contains [Terraform](https://www.terraform.io/) code that can be used to quickly spin up a CentOS instance in the AWS U.S. East Coast region for testing cloud related functions. It creates a dedicated VPC and dependencies (routes, subnets, NACL, security group, IAM role, SSH keypair, ...). The produced instance is nicknamed (and tagged) `gimmepubinstance`. Feel free to use it as a base cloud environment for a bigger purpose.
 
+![arch](images/architecture.png)
+
 ## Setup Steps
 
 ### Prereqs
